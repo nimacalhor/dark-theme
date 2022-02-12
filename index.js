@@ -43,7 +43,7 @@ const getCookie = function (key) {
 }
 
 const init = function () {
-    // 1) locale storage
+    // 1) get cookie
     const savedTheme = getCookie("darkTheme") === "false" ? false : true
     if (savedTheme !== null) darkTheme = savedTheme;
     // 2) UI 
