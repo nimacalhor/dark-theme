@@ -34,15 +34,25 @@ const toggleTheme = function () {
     else applyLightTheme();
 }
 
+const getCookie = function (key) {
+    return document.cookie.split("; ")
+        .find(
+            item => item.startsWith(`${key}=`)
+        )
+        .split("=")[1]
+}
+
 const init = function () {
     // 1) locale storage
-    const savedTheme = localStorage.getItem("darkTheme") === "false" ? false : true
+    const savedTheme = getCookie("darkTheme") === "false" ? false : true
     if (savedTheme !== null) darkTheme = savedTheme;
     // 2) UI 
     changeThemeIcon();
     btnThemeToggler.checked = darkTheme;
     toggleTheme();
 }
+
+init()
 
 btnThemeToggler.addEventListener("click", function (e) {
     // toggle theme
@@ -51,8 +61,7 @@ btnThemeToggler.addEventListener("click", function (e) {
     e.target.checked = darkTheme
     changeThemeIcon();
     toggleTheme();
-    // locale storage
-    localStorage.setItem("darkTheme", darkTheme)
+    // cookie
+    // localStorage.setItem("darkTheme", darkTheme)
+    document.cookie = `darkTheme=${darkTheme}; expires=120; sameSite=strict; Secure;`
 })
-
-init()
