@@ -1,0 +1,43 @@
+:root {
+  --neutral-bg-clr-main: rgb(255, 255, 255);
+  --neutral-bg-clr-secondary: rgba(248, 249, 250);
+  --neutral-txt-clr-main: rgb(0, 0, 0);
+  --neutral-txt-clr-secondary: rgb(29, 29, 29);
+}
+
+body {
+  background-color: var(--neutral-bg-clr-main);
+  color: var(--neutral-txt-clr-main);
+}
+
+.navbar {
+  background-color: var(--neutral-bg-clr-secondary) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button > * {
+  color: var(--neutral-txt-clr-main);
+}
+
+p,
+a {
+  color: var(--neutral-txt-clr-secondary) !important;
+}
+
+input{
+    background-color: var(--neutral-bg-clr-main) !important;
+}
+
+img{
+    height: 150px !important;
+    object-fit: cover;
+}
+
+img:last-child{
+    height: 200px;
+}
